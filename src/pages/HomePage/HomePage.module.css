@@ -1,0 +1,13 @@
+.div{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 600px);
+}
+
+.title{
+ font-weight: 900;
+  font-size: 48;
+  text-align: center;
+  color: rgb(10, 67, 38);
+}

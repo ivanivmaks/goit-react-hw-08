@@ -12,5 +12,34 @@
   border-radius: 10px;
   height: 80px;
   width: 300px;
-  padding: 15px;
+  padding: 10px;
+}
+
+.div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.items{
+  display: flex;
+  align-items: center;
+  gap:5px;
+}
+
+.deleteBtn {
+  height: 35px;
+  width: 70px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.deleteBtn:hover {
+    background-color:black;
+    color: white;
 }

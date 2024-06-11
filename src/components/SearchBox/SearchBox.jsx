@@ -2,28 +2,31 @@ import { Formik, Form, Field } from "formik";
 import { useId } from "react";
 import css from "./SearchBox.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getFilters, setStatusFilter } from "../../redux/filtersSlice";
+import { selectFilter } from "../../redux/filters/selectors";
+import { changeFilter } from "../../redux/filters/slice";
 
 export default function SearchBox() {
-  const filter = useSelector(getFilters);
+ const value = useSelector(selectFilter);
   const dispatch = useDispatch();
-
+  
   const handleFilter = (event) => {
-    dispatch(setStatusFilter(event.target.value));
+   const normalizedValue = event.target.value.toLowerCase();
+
+   dispatch(changeFilter(normalizedValue));
   };
 
   const filterId = useId();
   return (
     <div>
-      <Formik initialValues={filter} onSubmit={() => {}}>
+      <Formik initialValues={value} onSubmit={() => {}}>
         <Form>
-          <label htmlFor={filterId}> Find contacts by name</label>
+          <label htmlFor={filterId}> Find contacts by name:</label>
           <Field
             type="text"
             name="filter"
             id={filterId}
             className={css.filter}
-            value={filter}
+            value={value}
             onChange={handleFilter}
           />
         </Form>
